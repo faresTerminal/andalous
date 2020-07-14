@@ -1,0 +1,211 @@
+{% load static from staticfiles %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ROUAD  EL  ANDALOUS </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{% static 'images/shape_logo.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min">
+
+    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
+
+    
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style22.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style4.css' %}">
+  </head>
+  <body>
+    <div class="py-1 bg-black top">
+     <div class="container">
+          <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+               <div class="col-lg-12 d-block">
+                    <div class="row d-flex">
+                         <div class="col-md pr-4 d-flex topper align-items-center">
+                              <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                                  <span class="text">+213 21212620</span>
+                             </div>
+                             <div class="col-md pr-4 d-flex topper align-items-center">
+                              <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                                  <span class="text">youremail@email.com</span>
+                             </div>
+                             <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right justify-content-end">
+                                  <p class="mb-0 register-link"><span>Heures d'ouverture:</span> <span>Dimanche - Samdi</span> <span>11:00 - 00:00</span></p>
+                             </div>
+                        </div>
+                   </div>
+              </div>
+            </div>
+    </div>
+       <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+         <div class="container">
+           <a style="font-family: 'Fondamento', cursive !important;" class="navbar-brand" href="/">ROUAD  EL  ANDALOUS</a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="oi oi-menu"></span> Menu
+           </button>
+
+           <div class="collapse navbar-collapse" id="ftco-nav">
+             <ul class="navbar-nav ml-auto">
+               <li class="nav-item active"><a href="/" class="nav-link">Accueil</a></li>
+               <li class="nav-item"><a href="/about" class="nav-link">à propos</a></li>
+               <li class="nav-item"><a href="/menu" class="nav-link">Menu</a></li>
+               <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+               <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+                 <li class="nav-item"><a href="/search" class="nav-link">Search</a></li>
+                 
+                 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           {% if request.user.is_authenticated %}
+          <a class="dropdown-item" > <img src="{{ request.user.author_set.first.profile_picture.url }}" alt="author" style="max-width: 2.5em; margin-right: 10px;height: 2.5em;"></a>
+          <a class="dropdown-item" href="/profile">{{full_name}}</a>
+           <a class="dropdown-item" href="/cart">Votre Panier</a>
+            <a class="dropdown-item" href="/create"> Donnez votre avis</a>
+          <div class="dropdown-divider"></div>
+         
+          <a class="dropdown-item" href="/logout">
+                             Se déconnecter</a>
+          </div>
+          {% else%}
+          <a class="dropdown-item" href="/login">Login</a>
+          <a class="dropdown-item" href="/register">Register</a>
+          <a class="dropdown-item" href="/cart">Votre Panier</a>
+          {% endif %}
+          
+          
+      </li>
+               <li class="nav-item cta"><a href="/booking_page" class="nav-link">réserver une table</a></li>
+               
+             </ul>
+           </div>
+         </div>
+
+       </nav>
+    <!-- END nav -->
+    
+     {% block content %}
+
+
+
+     {% endblock %}
+
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-6 col-lg-3">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">ROUAD  EL  ANDALOUS</h2>
+              <p>Plus de 19 plats d'entrées variées durant toute la saison 16 variétés de grillades à la braise Trois espaces differents pour vous mettre à l'aise ....</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Heures d'ouverture</h2>
+              <ul class="list-unstyled open-hours">
+                <li class="d-flex"><span>Dimanche</span><span>11:00 - 00:00</span></li>
+                <li class="d-flex"><span>Lundi</span><span>11:00 - 00:00</span></li>
+                <li class="d-flex"><span>Merdi</span><span>11:00 - 00:00</span></li>
+                <li class="d-flex"><span>Mercredi</span><span>11:00 - 00:00</span></li>
+                <li class="d-flex"><span>Jeudi</span><span>11:00 - 00:00</span></li>
+                <li class="d-flex"><span>Vendredi</span><span>2:30 - 00:00</span></li>
+                <li class="d-flex"><span>Samdi</span><span> 11:00 - 00:00</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Galerie</h2>
+              <div class="thumb d-sm-flex">
+                    <a href="#" class="thumb-menu img" style="background-image: url({% static 'images/insta-1.jpg' %});">
+                    </a>
+                    <a href="#" class="thumb-menu img" style="background-image: url({% static 'images/insta-2.jpg' %});">
+                    </a>
+                    <a href="#" class="thumb-menu img" style="background-image: url({% static 'images/insta-3.jpg' %});">
+                    </a>
+                 </div>
+                 <div class="thumb d-flex">
+                    <a href="#" class="thumb-menu img" style="background-image: url({% static 'images/insta-4.jpg' %});">
+                    </a>
+                    <a href="#" class="thumb-menu img" style="background-image: url({% static 'images/insta-5.jpg' %});">
+                    </a>
+                    <a href="#" class="thumb-menu img" style="background-image: url({% static 'images/insta-6.jpg' %});">
+                    </a>
+                 </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="ftco-footer-widget mb-4">
+               <h2 class="ftco-heading-2">S'abonner</h2>
+               <p>
+Recevez facilement des alertes alimentaires sur votre téléphone en plaçant votre adresse e-mail.</p>
+              <form action="#" class="subscribe-form">
+                <div class="form-group">
+                  <input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
+                  <input type="submit" value="Subscribe" class="form-control submit px-3">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+  <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
+  <script src="{% static 'js/scrollax.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static 'js/google-map1.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+    
+  </body>
+</html>

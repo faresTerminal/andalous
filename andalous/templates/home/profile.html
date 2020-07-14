@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}حسابي{% endblock %}
+{% block content %}
+{% block profile %}   
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate text-center mb-4">
+            <h1 class="mb-2 bread">Profile</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>{{user.name}} <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<div class="container emp-profile ">
+            <form method="post" style="margin-top: 5em;">
+                <div class="row shadow p-3 mb-5 bg-white rounded">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img style="max-height: 15em;
+max-width: 15em;" src="{{ user.profile_picture.url }}" alt=""/>
+
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="profile-head ">
+                                    <h2 class="text-dark ">
+                                       {{user.name}}
+                                    </h2>
+                                   <div class="row">
+                                            <div class="col-md-4">
+                                                <label style="font-family: 'Cairo', sans-serif;" >تاريخ التسجيل</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p class="text-info">{{user.name.date_joined}}</p>
+                                            </div>
+                                        </div>
+
+                                      <div class="row">
+                                            <div class="col-md-4">
+                                                <label style="font-family: 'Cairo', sans-serif;">توجدك الأخير</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p class="text-info">{{user.name.last_login}}</p>
+                                                
+
+                                            </div>
+
+                                        </div>
+                                         <!-- social media -->
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                              <div class="container">
+  <div class="row">
+    <div class="social">
+            <ul>
+                <li><a href="{{user.facebook_account}}"><i class="fa fa-lg fa-facebook"></i></a></li>
+                <li><a href="{{user.twitter_account}}"><i class="fa fa-lg fa-twitter"></i></a></li>
+              
+                <li><a href="{{user.instagram_account}}"><i class="fa fa-lg fa-instagram"></i></a></li>
+               
+                <li><a href="{{user.youtube_channel}}"><i class="fa fa-lg fa-youtube-play"></i></a></li>
+            </ul>
+        </div>
+  </div>
+</div>
+                                              
+                                            </div>
+                                           
+                                        </div>
+                                        <!-- end social media -->
+                                    
+                            
+                        </div>
+                    </div>
+                   
+                </div>
+               
+                          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                              
+                     
+  <div class="row">
+  {% for td in post %}
+  <div class="col-lg-6">
+    <div class="card" style="width: 18rem;border:none;">
+  
+  <img  src="{{td.profile_picture.url}}" >
+ 
+  {{td.posted_on}}
+  <div class="card-body">
+    <p class="card-text" style="font-family: 'Cairo', sans-serif;"> {{td.title}}</p>
+    <a href="delete/{{ td.id }}"><i class="fas fa-trash-alt" style="font-size: 20px;
+        margin: 4px; color: #e63731;"></i></a>||<a href="update/{{ td.id }}"><i class="fas fa-edit" style="font-size: 20px;
+        margin: 4px; color: #08961e;"></i></a>
+  </div>
+</div>
+
+    
+  </div>
+  {% endfor %}
+  </div>
+
+
+
+{% endblock %}
+
+
+
+
+
+                          </div>
+                    </div>
+                </div>    
+        </div>
+
+
+        
+
+
+{% endblock %}

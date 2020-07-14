@@ -1,0 +1,511 @@
+{% extends 'base.html' %}
+{% load static %}
+ 
+{% block title%}{% endblock%}
+{% block content %}
+
+
+ 
+    
+   
+
+      <section class="home-slider owl-carousel js-fullheight">
+      <div class="slider-item js-fullheight" style="background-image: url({% static 'images/bg_1.jpg' %});">
+          <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-12 col-sm-12 text-center ftco-animate">
+               <span style="font-family: 'Fondamento', cursive !important;font-size: 4em" class="subheading">ROUAD  EL  ANDALOUS</span>
+              <h1 class="mb-4">RESTAURANT & RÔTISSERIE</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item js-fullheight" style="background-image: url({% static 'images/bg_2.jpg' %});">
+          <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-12 col-sm-12 text-center ftco-animate">
+               <span style="font-family: 'Fondamento', cursive !important;font-size: 4em" class="subheading">ROUAD  EL  ANDALOUS</span>
+              <h1 class="mb-4">Le Spécialiste de la grillade et du méchoui en Algerie</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item js-fullheight" style="background-image: url({% static 'images/bg_3.jpg' %});">
+          <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-12 col-sm-12 text-center ftco-animate">
+               <span style="font-family: 'Fondamento', cursive !important;font-size: 4em" class="subheading">ROUAD  EL  ANDALOUS</span>
+              <h1 class="mb-4">Spécialités délicieuses</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+     <div class="container-fluid">
+          <div class="row">
+               <div class="col-md-12">
+                    <div class="featured">
+                         <div class="row">
+                              {% for p in plat %}
+                              <div class="col-md-3">
+                                   <div class="featured-menus ftco-animate">
+                             <div class="menu-img img" style="background-image: url({{p.image_plat.url}});"></div>
+                             <div class="text text-center">
+                            <h3>{{p.title_plat}}</h3>
+                                  <p><span>{{p.category}}</span></p>
+                             </div>
+                           </div>
+                              </div>
+                              {% endfor %}
+                              
+                              
+                             
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+    </section>
+     <!-- Messages -->
+ {% if messages %}
+    <div class="alert alert-light text-center" role="alert" style="font-family: 'Cairo', sans-serif, !important;">
+        {% for message in messages %}
+
+         <!-- msg contact comment add-->
+        {%if "bookingCM" in message.tags %}
+          
+       <div class="alert alert-info" role="alert">
+         {{message}}
+       </div>
+         {%endif%} 
+          <!-- end msg contact comment add--> 
+           <!-- msg contact comment add-->
+        {%if "Done" in message.tags %}
+          
+       <div class="alert alert-info" role="alert">
+         {{message}}
+       </div>
+         {%endif%} 
+          <!-- end msg contact comment add--> 
+          
+
+
+        {% endfor %}
+    </div>
+    {% endif %} 
+ <!-- End messages -->
+     
+
+          <section class="ftco-section ftco-wrap-about">
+               <div class="container">
+                    <div class="row">
+                         <div class="col-md-7 d-flex">
+                              <div class="img img-1 mr-md-2" style="background-image: url({% static 'images/about.jpg' %});"></div>
+                              <div class="img img-2 ml-md-2" style="background-image: url({% static 'images/about-1.jpg' %});"></div>
+                         </div>
+                         <div class="col-md-5 wrap-about pt-5 pt-md-5 pb-md-3 ftco-animate">
+               <div class="heading-section mb-4 my-5 my-md-0">
+                    <span class="subheading">À propos</span>
+                 <h2 class="mb-4">
+Rouad El andalous
+Restaurant</h2>
+               </div>
+               <p>Plus de 19 plats d'entrées variées durant toute la saison
+16 variétés de grillades à la braise
+Trois espaces differents pour vous mettre à l'aise ....</p>
+                              <pc class="time">
+                                   <span>Dimanche - Samdi <strong>11:00 - 00:00 </strong></span>
+                                   <span><a href="#">+213 21212620</a></span>
+                              </p>
+                         </div>
+                    </div>
+               </div>
+          </section>
+
+          
+          <section class="ftco-section ftco-counter img ftco-no-pt" id="section-counter">
+     <div class="container">
+          <div class="row d-md-flex">
+               <div class="col-md-9">
+                    <div class="row d-md-flex align-items-center">
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 d-flex justify-content-center counter-wrap ftco-animate">
+                      <div class="block-18">
+                        <div class="text">
+                          <strong class="number" data-number="11">0</strong>
+                          <span>Years of Experienced</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 d-flex justify-content-center counter-wrap ftco-animate">
+                      <div class="block-18">
+                        <div class="text">
+                          <strong class="number" data-number="100">0</strong>
+                          <span>Menus/Dish</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 d-flex justify-content-center counter-wrap ftco-animate">
+                      <div class="block-18">
+                        <div class="text">
+                          <strong class="number" data-number="50">0</strong>
+                          <span>Staffs</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 d-flex justify-content-center counter-wrap ftco-animate">
+                      <div class="block-18">
+                        <div class="text">
+                          <strong class="number" data-number="1700">0</strong>
+                          <span>Happy Customers</span>
+                        </div>
+                      </div>
+                    </div>
+               </div>
+          </div>
+          <div class="col-md-3 text-center text-md-left">
+               <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+          </div>
+        </div>
+     </div>
+    </section>
+
+          <section class="ftco-section bg-light">
+               <div class="container">
+                    <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-12 text-center heading-section ftco-animate">
+               <span class="subheading">Services</span>
+            <h2 class="mb-4">Service de restauration</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 d-flex align-self-stretch ftco-animate text-center">
+            <div class="media block-6 services d-block">
+              <div class="icon d-flex justify-content-center align-items-center">
+                    <span class="flaticon-cake"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Fête d'anniversaire</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-4 d-flex align-self-stretch ftco-animate text-center">
+            <div class="media block-6 services d-block">
+              <div class="icon d-flex justify-content-center align-items-center">
+                    <span class="flaticon-meeting"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Rencontres professionnelles</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-4 d-flex align-self-stretch ftco-animate text-center">
+            <div class="media block-6 services d-block">
+              <div class="icon d-flex justify-content-center align-items-center">
+                    <span class="flaticon-tray"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">
+Mariage</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+               </div>
+          </section>
+
+    <section class="ftco-section">
+     <div class="container">
+          <div class="row no-gutters justify-content-center mb-5 pb-2">
+          <div class="col-md-12 text-center heading-section ftco-animate">
+               <span class="subheading">
+Spécialités</span>
+            <h2 class="mb-4">Notre menu</h2>
+          </div>
+        </div>
+        <div class="row no-gutters d-flex align-items-stretch">
+          {% for m in menu%}
+          <div class="col-md-12 col-lg-6 d-flex align-self-stretch" style="margin-bottom: 1em">
+               <div class="menus d-sm-flex ftco-animate align-items-stretch">
+              <div class="menu-img img" style="background-image: url({{m.image_plat.url}});"></div>
+              <div class="text d-flex align-items-center">
+                                        <div>
+                    <div class="d-flex">
+                          <div class="one-half">
+                            <h3>{{m.title_plat}}</h3>
+                          </div>
+                          <div class="one-forth">
+                            <span class="price">{{m.price}} DA</span>
+                          </div>
+                        </div>
+                        <p><span>{{m.category}}</span></p>
+                        <p><a href="#" class="btn btn-primary">Commandez maintenant</a></p>
+                   </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+       
+        </div>
+     </div>
+    </section>
+    
+          <section class="ftco-section">
+               <div class="container">
+                    <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-12 text-center heading-section ftco-animate">
+               <span class="subheading">Chef</span>
+            <h2 class="mb-4">
+Notre maître cuisinier</h2>
+          </div>
+        </div> 
+                    <div class="row">
+                         <div class="col-md-6 col-lg-3 ftco-animate">
+                              <div class="staff">
+                                   <div class="img" style="background-image: url({% static 'images/chef-4.jpg' %});"></div>
+                                   <div class="text pt-4">
+                                        <h3>John Smooth</h3>
+                                        <span class="position mb-2">Restaurant Owner</span>
+                                        <div class="faded">
+                                             <ul class="ftco-social d-flex">
+                          <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                   </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-md-6 col-lg-3 ftco-animate">
+                              <div class="staff">
+                                   <div class="img" style="background-image: url({% static 'images/chef-2.jpg' %});"></div>
+                                   <div class="text pt-4">
+                                        <h3>Rebeca Welson</h3>
+                                        <span class="position mb-2">Head Chef</span>
+                                        <div class="faded">
+                                             <ul class="ftco-social d-flex">
+                          <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                   </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-md-6 col-lg-3 ftco-animate">
+                              <div class="staff">
+                                   <div class="img" style="background-image: url({% static 'images/chef-3.jpg' %});"></div>
+                                   <div class="text pt-4">
+                                        <h3>Kharl Branyt</h3>
+                                        <span class="position mb-2">Chef</span>
+                                        <div class="faded">
+                                             <ul class="ftco-social d-flex">
+                          <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                   </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-md-6 col-lg-3 ftco-animate">
+                              <div class="staff">
+                                   <div class="img" style="background-image: url({% static 'images/chef-1.jpg' %});"></div>
+                                   <div class="text pt-4">
+                                        <h3>Luke Simon</h3>
+                                        <span class="position mb-2">Chef</span>
+                                        <div class="faded">
+                                             <ul class="ftco-social d-flex">
+                          <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+                          <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                   </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </section>
+
+          <section class="ftco-section img" style="background-image: url({% static 'images/bg_3.jpg' %})" data-stellar-background-ratio="0.5">
+               <div class="container">
+                    <div class="row d-flex">
+          <div class="col-md-7 ftco-animate makereservation p-4 px-md-5 pb-md-5">
+               <div class="heading-section ftco-animate mb-5 text-center">
+                    <span class="subheading">réserver une table</span>
+                 <h2 class="mb-4">
+                               Faire une réservation</h2>
+               </div> 
+               {% if request.user.is_authenticated %}
+             <form action="/booking/"   method="post" enctype="multipart"> {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Nom</label>
+                    <input name="nom" type="text" class="form-control" placeholder="######">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Email</label>
+                    <input name="email" type="email" class="form-control" placeholder="######">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Téléphone</label>
+                    <input name="phone"  class="form-control" placeholder="######">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Date</label>
+                    <input name="date"  class="form-control" id="book_date" placeholder="######">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Heure</label>
+                    <div class="select-wrap one-third">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select  id="" class="form-control" name = hour >
+                        <option>######</option>
+                        <option >1100</option>
+                        <option >1130</option>
+                        <option >1200</option>
+                        <option >1330</option>
+                        <option >1400</option>
+                        <option >1500</option>
+                        <option >1600</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Person</label>
+                    <div class="select-wrap one-third">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select  id="" class="form-control" name="person" >
+                        <option>######</option>
+                        <option >1</option>
+                        <option >2</option>
+                        <option >3</option>
+                        <option >4</option>
+                        <option >5</option>
+                        <option >6</option>
+                        <option >7+</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 mt-3">
+                  <div class="form-group text-center">
+                    <input type="submit" value="
+Faire une réservation" class="btn btn-primary py-3 px-5">
+                  </div>
+                </div>
+              </div>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+               </div>
+          </section>
+          
+          <section class="ftco-section testimony-section img">
+               <div class="overlay"></div>
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-12 text-center heading-section ftco-animate">
+               <span class="subheading">Témoignage</span>
+            <h2 class="mb-4">
+                             Client heureux</h2>
+          </div>
+        </div>
+        <div class="row ftco-animate justify-content-center">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ftco-owl">
+             
+              {% for d in customer %}
+              <div class="item">
+                <div class="testimony-wrap text-center pb-5">
+                  <div class="user-img mb-4" style="background-image: url({{ d.costumer_pic.profile_picture.url }})">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                  </div>
+                  <div class="text p-3">
+                    <p class="mb-4">{{d.body|safe}}</p>
+                    <p class="name">{{d.coctumer}}</p>
+                    <span class="position">Client</span>
+                  </div>
+                </div>
+              </div>
+              
+            
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+          
+          <section class="ftco-section bg-light">
+               <div class="container">
+                    <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+               <span class="subheading">Blog</span>
+            <h2 class="mb-4">
+               Articles récents</h2>
+          </div>
+        </div>
+                    <div class="row">
+                      {% for s in blog %}
+          <div class="col-md-4 ftco-animate">
+            <div class="blog-entry">
+              <a href="/article/{{s.id}}/{{s.slug}}" class="block-20" style="background-image: url({{s.image.url}});">
+              </a>
+              <div class="text pt-3 pb-4 px-4">
+                <div class="meta">
+                  <div><a href="#">{{s.posted_on}}</a></div>
+                  <div><a href="#">Admin</a></div>
+                </div>
+                <h3 class="heading"><a href="/article/{{s.id}}/{{s.slug}}">{{s.title}}</a></h3>
+                <p class="clearfix">
+                  <a href="/article/{{s.id}}/{{s.slug}}" class="float-left read">Read more</a>
+                  <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          
+         
+        </div>
+               </div>
+          </section>
+
+		
+{% endblock %}

@@ -1,0 +1,372 @@
+ 
+
+
+ 
+
+
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+ 
+{% block title%}{% endblock%}
+
+{% if category %}{{ category.name }}{% else %}Plat_a_manger{% endif %}
+
+{% block content %}
+
+
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate text-center mb-4">
+            <h1 class="mb-2 bread">Menu</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Acceil <i class="ion-ios-arrow-forward"></i></a></span> <span>le menu <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+		
+
+    <!-- container -->
+    <div class="container">
+
+    <div class="row" style="margin-top: 4em; margin-bottom: 10em;">
+  <div class="col-lg-3">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link  active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Populaire</a>
+      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Entrées Froides</a>
+      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Entrées Chaudes</a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Plats Traditionnels</a>
+
+      <a class="nav-link" id="v-pills-Poissons-tab" data-toggle="pill" href="#v-pills-Poissons" role="tab" aria-controls="v-pills-Poissons" aria-selected="false">Poissons</a>
+      <a class="nav-link" id="v-pills-Viandes-tab" data-toggle="pill" href="#v-pills-Viandes" role="tab" aria-controls="v-pills-Viandes" aria-selected="false">Viandes</a>
+      <a class="nav-link" id="v-pills-Volailles-tab" data-toggle="pill" href="#v-pills-Volailles" role="tab" aria-controls="v-pills-Volailles" aria-selected="false">Volailles</a>
+      <a class="nav-link" id="v-pills-Brochettes-tab" data-toggle="pill" href="#v-pills-Brochettes" role="tab" aria-controls="v-pills-Brochettes" aria-selected="false">Brochettes</a>
+      <a class="nav-link" id="v-pills-Boissons-tab" data-toggle="pill" href="#v-pills-Boissons" role="tab" aria-controls="v-pills-Boissons" aria-selected="false">Boissons</a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-Desserts" role="tab" aria-controls="v-pills-settings" aria-selected="false">Desserts</a>
+    </div>
+  </div>
+  <div class="col-lg-9">
+    <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+      	<!-- query -->
+
+	              	<div class="row no-gutters d-flex align-items-stretch">
+	              		        {% for s in products %}
+					        	<div class="col-lg-9 col-md-9 col-sm-9 d-flex align-self-stretch m-2">
+					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
+					              <div class="menu-img img" style="background-image: url({{s.image_plat.url}});"></div>
+					              <div class="text d-flex align-items-center">
+													<div>
+						              	<div class="d-flex">
+							                <div class="one-half">
+							                  <h3>{{s.title_plat}}</h3>
+							                </div>
+							                <div class="one-forth">
+							                  <span class="price">{{s.price}} DA</span>
+							                </div>
+							              </div>
+							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+							              <p><a href="{{ s.get_absolute_url }}" class="btn btn-primary">
+                                           Commandez maintenant</a></p>
+
+						              </div>
+					              </div>
+					            </div>
+					        	</div>
+					        	{% endfor %}
+					</div>  	
+       <!-- end query -->
+      </div>
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+      	
+       <!-- query -->
+
+	              	<div class="row no-gutters d-flex align-items-stretch">
+	              		        {% for s in second %}
+					        	<div class="col-lg-9 col-md-9 col-sm-9 d-flex align-self-stretch m-2">
+					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
+					              <div class="menu-img img" style="background-image: url({{s.image_plat.url}});"></div>
+					              <div class="text d-flex align-items-center">
+													<div>
+						              	<div class="d-flex">
+							                <div class="one-half">
+							                  <h3>{{s.title_plat}}</h3>
+							                </div>
+							                <div class="one-forth">
+							                  <span class="price">{{s.price}} DA</span>
+							                </div>
+							              </div>
+							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+							             <p><a href="{{ s.get_absolute_url }}" class="btn btn-primary">
+                                           Commandez maintenant</a></p>
+						              </div>
+					              </div>
+					            </div>
+					        	</div>
+					        	{% endfor %}
+					</div>  	
+       <!-- end query -->
+
+      </div>
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+      	  <!-- query -->
+
+	              	<div class="row no-gutters d-flex align-items-stretch">
+	              		        {% for s in four %}
+					        	<div class="col-lg-9 col-md-9 col-sm-9 d-flex align-self-stretch m-2">
+					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
+					              <div class="menu-img img" style="background-image: url({{s.image_plat.url}});"></div>
+					              <div class="text d-flex align-items-center">
+													<div>
+						              	<div class="d-flex">
+							                <div class="one-half">
+							                  <h3>{{s.title_plat}}</h3>
+							                </div>
+							                <div class="one-forth">
+							                  <span class="price">{{s.price}} DA</span>
+							                </div>
+							              </div>
+							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+							              <p><a href="{{ s.get_absolute_url }}" class="btn btn-primary">
+                                           Commandez maintenant</a></p>
+						              </div>
+					              </div>
+					            </div>
+					        	</div>
+					        	{% endfor %}
+					</div>  	
+       <!-- end query -->
+      </div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+      	<!-- query -->
+
+	              	<div class="row no-gutters d-flex align-items-stretch">
+	              		        {% for s in five %}
+					        	<div class="col-lg-9 col-md-9 col-sm-9 d-flex align-self-stretch m-2">
+					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
+					              <div class="menu-img img" style="background-image: url({{s.image_plat.url}});"></div>
+					              <div class="text d-flex align-items-center">
+													<div>
+						              	<div class="d-flex">
+							                <div class="one-half">
+							                  <h3>{{s.title_plat}}</h3>
+							                </div>
+							                <div class="one-forth">
+							                  <span class="price">{{s.price}} DA</span>
+							                </div>
+							              </div>
+							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+							              <p><a href="{{ s.get_absolute_url }}" class="btn btn-primary">
+                                           Commandez maintenant</a></p>
+						              </div>
+					              </div>
+					            </div>
+					        	</div>
+					        	{% endfor %}
+					</div>  	
+       <!-- end query -->
+      </div>
+
+
+      <div class="tab-pane fade" id="v-pills-Poissons" role="tabpanel" aria-labelledby="v-pills-Poissons-tab">
+      	<!-- query -->
+
+	              	<div class="row no-gutters d-flex align-items-stretch">
+	              		        {% for s in six %}
+					        	<div class="col-lg-9 col-md-9 col-sm-9 d-flex align-self-stretch m-2">
+					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
+					              <div class="menu-img img" style="background-image: url({{s.image_plat.url}});"></div>
+					              <div class="text d-flex align-items-center">
+													<div>
+						              	<div class="d-flex">
+							                <div class="one-half">
+							                  <h3>{{s.title_plat}}</h3>
+							                </div>
+							                <div class="one-forth">
+							                  <span class="price">{{s.price}} DA</span>
+							                </div>
+							              </div>
+							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+							             <p><a href="{{ s.get_absolute_url }}" class="btn btn-primary">
+                                           Commandez maintenant</a></p>
+						              </div>
+					              </div>
+					            </div>
+					        	</div>
+					        	{% endfor %}
+					</div>  	
+       <!-- end query -->
+      </div>
+
+
+      <div class="tab-pane fade" id="v-pills-Viandes" role="tabpanel" aria-labelledby="v-pills-Viandes-tab">
+      	<!-- query -->
+
+	              	<div class="row no-gutters d-flex align-items-stretch">
+	              		        {% for s in seven%}
+					        	<div class="col-lg-9 col-md-9 col-sm-9 d-flex align-self-stretch m-2">
+					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
+					              <div class="menu-img img" style="background-image: url({{s.image_plat.url}});"></div>
+					              <div class="text d-flex align-items-center">
+													<div>
+						              	<div class="d-flex">
+							                <div class="one-half">
+							                  <h3>{{s.title_plat}}</h3>
+							                </div>
+							                <div class="one-forth">
+							                  <span class="price">{{s.price}} DA</span>
+							                </div>
+							              </div>
+							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+							             <p><a href="{{ s.get_absolute_url }}" class="btn btn-primary">
+                                           Commandez maintenant</a></p>
+						              </div>
+					              </div>
+					            </div>
+					        	</div>
+					        	{% endfor %}
+					</div>  	
+       <!-- end query -->
+      </div>
+
+      <div class="tab-pane fade" id="v-pills-Volailles" role="tabpanel" aria-labelledby="v-pills-Volailles-tab">
+      	<!-- query -->
+
+	              	<div class="row no-gutters d-flex align-items-stretch">
+	              		        {% for s in eight%}
+					        	<div class="col-lg-9 col-md-9 col-sm-9 d-flex align-self-stretch m-2">
+					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
+					              <div class="menu-img img" style="background-image: url({{s.image_plat.url}});"></div>
+					              <div class="text d-flex align-items-center">
+													<div>
+						              	<div class="d-flex">
+							                <div class="one-half">
+							                  <h3>{{s.title_plat}}</h3>
+							                </div>
+							                <div class="one-forth">
+							                  <span class="price">{{s.price}} DA</span>
+							                </div>
+							              </div>
+							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+							              <p><a href="{{ s.get_absolute_url }}" class="btn btn-primary">
+                                           Commandez maintenant</a></p>
+						              </div>
+					              </div>
+					            </div>
+					        	</div>
+					        	{% endfor %}
+					</div>  	
+       <!-- end query -->
+      </div>
+
+      <div class="tab-pane fade" id="v-pills-Brochettes" role="tabpanel" aria-labelledby="v-pills-Brochettes-tab">
+      	<!-- query -->
+
+	              	<div class="row no-gutters d-flex align-items-stretch">
+	              		        {% for s in nane%}
+					        	<div class="col-lg-9 col-md-9 col-sm-9 d-flex align-self-stretch m-2">
+					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
+					              <div class="menu-img img" style="background-image: url({{s.image_plat.url}});"></div>
+					              <div class="text d-flex align-items-center">
+													<div>
+						              	<div class="d-flex">
+							                <div class="one-half">
+							                  <h3>{{s.title_plat}}</h3>
+							                </div>
+							                <div class="one-forth">
+							                  <span class="price">{{s.price}} DA</span>
+							                </div>
+							              </div>
+							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+							             <p><a href="{{ s.get_absolute_url }}" class="btn btn-primary">
+                                           Commandez maintenant</a></p>
+						              </div>
+					              </div>
+					            </div>
+					        	</div>
+					        	{% endfor %}
+					</div>  	
+       <!-- end query -->
+      </div>
+
+      <div class="tab-pane fade" id="v-pills-Boissons" role="tabpanel" aria-labelledby="v-pills-Boissons-tab">
+      	<!-- query -->
+
+	              	<div class="row no-gutters d-flex align-items-stretch">
+	              		        {% for s in ten%}
+					        	<div class="col-lg-9 col-md-9 col-sm-9 d-flex align-self-stretch m-2">
+					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
+					              <div class="menu-img img" style="background-image: url({{s.image_plat.url}});"></div>
+					              <div class="text d-flex align-items-center">
+													<div>
+						              	<div class="d-flex">
+							                <div class="one-half">
+							                  <h3>{{s.title_plat}}</h3>
+							                </div>
+							                <div class="one-forth">
+							                  <span class="price">{{s.price}} DA</span>
+							                </div>
+							              </div>
+							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+							             <p><a href="{{ s.get_absolute_url }}" class="btn btn-primary">
+                                           Commandez maintenant</a></p>
+						              </div>
+					              </div>
+					            </div>
+					        	</div>
+					        	{% endfor %}
+					</div>  	
+       <!-- end query -->
+      </div>
+
+      <div class="tab-pane fade" id="v-pills-Desserts" role="tabpanel" aria-labelledby="v-pills-Desserts-tab">
+      	<!-- query -->
+
+	              	<div class="row no-gutters d-flex align-items-stretch">
+	              		        {% for s in eleven%}
+					        	<div class="col-lg-9 col-md-9 col-sm-9 d-flex align-self-stretch m-2">
+					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
+					              <div class="menu-img img" style="background-image: url({{s.image_plat.url}});"></div>
+					              <div class="text d-flex align-items-center">
+													<div>
+						              	<div class="d-flex">
+							                <div class="one-half">
+							                  <h3>{{s.title_plat}}</h3>
+							                </div>
+							                <div class="one-forth">
+							                  <span class="price">{{s.price}} DA</span>
+							                </div>
+							              </div>
+							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+							             <p><a href="{{ s.get_absolute_url }}" class="btn btn-primary">
+                                           Commandez maintenant</a></p>
+						              </div>
+					              </div>
+					            </div>
+					        	</div>
+					        	{% endfor %}
+					</div>  	
+       <!-- end query -->
+      </div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- end container -->
+
+    {% endblock %}

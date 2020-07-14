@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}تغيير كلمة السر{% endblock %}
+{% block content %}
+
+ <!-- container -->
+ <div class="container"> 
+    <!-- row -->
+    <div class="row shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 5em;">
+        <!-- column -->
+        <div class="col-lg">
+            
+        </div>
+        <!--end column -->
+
+        <!-- column -->
+        <div class="col-lg-5">
+            <form class="config" action="/password_reset/" method="post">{% csrf_token%}
+            <p class="h2 my-5  ">طلب إعادة تعيين كلمة السر</p>
+              <div class="form-group">
+          <label for="inputUsernameEmail">أدخل بريدك الالكتروني</label>
+          <input type="email" class="form-control" id="inputUsernameEmail" placeholder="بريد الكتروني" name="email">
+        </div>
+
+        <button type="submit" class="btn btn btn-primary my-2" style="background-color: #32234b !important; border:none;">
+          ارسال
+        </button>
+        </form>
+            
+        </div>
+        <!--end column -->
+
+        <!-- column -->
+        <div class="col-lg">
+            
+        </div>
+        <!--end column -->
+        
+    </div>
+    <!-- end row -->
+     
+ </div>
+ <!-- end container -->
+
+
+{% endblock %}

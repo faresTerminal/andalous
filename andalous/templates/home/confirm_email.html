@@ -1,0 +1,7 @@
+{% block title %}تأكيد عبر البريد{% endblock %}
+{% autoescape off %}
+Hi {{ user.username }},
+Thanks for your registration in blog
+Please click on the link below to confirm your registration,
+http://127.0.0.1:8000{% url 'blog:activate' uid=uid token=token %}
+{% endautoescape %}

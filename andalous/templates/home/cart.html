@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+ 
+{% block title%}{% endblock%}
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate text-center mb-4">
+            <h1 class="mb-2 bread">Cart</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cart <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<div class="container">
+	<div class="row">
+        <div class="col-lg-3"></div>
+        {% for f in item %}
+		<div class="col-lg-6">
+
+			<p class="lead">{{f.title_plat}} <span>{{f.price}} DA</span> </p>
+			
+		</div>
+		{% endfor %}
+		 <div class="col-lg-3"></div>
+		}
+		
+	</div>
+	
+</div>
+
+{% endblock %}

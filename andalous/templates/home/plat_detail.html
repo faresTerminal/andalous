@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{{ product.name }}
+{% endblock %}
+{% block content %}
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate text-center mb-4">
+            <h1 class="mb-2 bread">opération d'achat</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil <i class="ion-ios-arrow-forward"></i></a></span> <span>opération d'achat <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+ 
+       <!-- query -->
+                   
+                     <div class="alert alert-info text-center" role="alert">
+                     Ajoutez le plat à votre panier
+                     </div>
+	              	<div class="row no-gutters d-flex align-items-stretch" style="margin-top: 5em;margin-bottom: 10em;">
+
+	              		        <div class="col-lg-3"></div>
+					        	<div class="col-lg-6 col-md-9 col-sm-9 d-flex align-self-stretch m-2">  
+
+					        		<div class="menus d-sm-flex ftco-animate align-items-stretch">
+					              <div class="menu-img img" style="background-image: url({{product.image_plat.url}});"></div>
+					              <div class="text d-flex align-items-center">
+													<div>
+						              	<div class="d-flex">
+							                <div class="one-half">
+							                  <h3>{{product.title_plat}}</h3>
+							                </div>
+							                <div class="one-forth">
+							                  <span class="price">{{product.price}} DA</span>
+							                </div>
+							              </div>
+							              <p><span>Meat</span>, <span>Potatoes</span>, <span>Rice</span>, <span>Tomatoe</span></p>
+							             <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                                                     
+                                                     {% csrf_token %}
+                                                     {{ cart_product_form }}
+                                                       <button type="submit" class="btn btn-success">add to cart</button>
+                                         </form>
+						              </div>
+					              </div>
+					            </div>
+					        	</div>
+					        	 <div class="col-lg-3"></div>
+					        	
+					</div>  	
+       <!-- end query -->
+
+      
+
+     {% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}إدخال معلومات{% endblock %}
+{% block content %}
+
+<!-- display image befor uploading -->
+    <script type="text/javascript">
+       function readimg(input){
+           if(input.files && input.files[0]){
+              var reader = new FileReader();
+              reader.onload = function (e){
+                   $('#idimg').attr('src', e.target.result);
+              };
+              reader.readAsDataURL(input.files[0]);
+            }
+          }
+
+
+
+
+    </script>
+
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate text-center mb-4">
+            <h1 class="mb-2 bread">Choisissez une image qui vous représente</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">َAccueil <i class="ion-ios-arrow-forward"></i></a></span> <span>Choisissez une image qui vous représente <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+   <div class="alert alert-info text-center" role="alert">
+                    Ajouter des informations
+                     </div>
+
+  <div class="container">
+       
+  </div>
+
+
+  <!-- container -->
+  <div class="container">
+     <form  action="/profile/" method="post" id="registrationForm"enctype="multipart/form-data">{% csrf_token %} 
+    
+    <!-- row-->
+    <div class="row" style="margin-bottom: 5em;">
+
+      <div class="col-lg-3"></div>
+      <!--column -->
+      <div class="col-lg-6 col-md-6">
+         <p class="border-bottom text-center py-1 my-5 font-weight-bold">
+                 Choisissez une photo personnelle</p>
+
+       
+
+      <img id="idimg" src="..." alt="..." class="img-thumbnail" style="max-width: 10em;
+          border: none;
+          border-radius: 100%;
+          height: 10em;">
+     
+      <div class="form-group">
+    
+       <div class="custom-file">
+        <input type="file" class="custom-file-input"  id="idupload" name="profile_picture" onchange ="readimg(this);">
+        <label class="custom-file-label" for="inputGroupFile01">Téléchargez la photo</label>
+       </div>
+
+      </div>
+
+    
+       <button type="submit" class="btn btn-success" >enregistrer</button>
+          
+        
+      </div>
+      <!--end column -->
+      <div class="col-lg-3"></div>
+      
+    </div>
+    <!-- end row-->
+     </form>
+       
+  </div>
+  <!-- end container -->
+</div>
+
+ 
+
+ {% endblock %}

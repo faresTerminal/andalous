@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}مقال جديد{% endblock %}
+{% block content %}
+
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_3.jpg' %});" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate text-center mb-4">
+            <h1 class="mb-2 bread">Votre avis</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil <i class="ion-ios-arrow-forward"></i></a></span> <span>votre avis <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="alert alert-info text-center" role="alert">
+                    Donnez votre avis sur le restaurant Roead Andalous
+    </div>
+
+     <!-- container -->
+  <div class="container">
+      <!--row -->
+      <div class="row " style="margin-top: 5em;margin-bottom: 5em;">
+          <!-- column--> 
+        <div class="col-lg-1 col-md-2"></div>
+        <!-- column--> 
+        <div class="col-lg-10 col-md-8">
+           
+            
+            <!-- form -->
+            <form action="/publish/" class ="put" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+                <div class="form-group ">
+                    {{ form.media }}
+                   {{ form}}
+                   
+                </div>
+ 
+  
+  <button type="submit" class="btn btn-success btn-lg btn-block">
+Donnez votre avis </button>
+</form>
+
+            <!-- end form -->
+            
+        </div>
+        <!-- end column-->
+        <div class="col-lg-1 col-md-2"></div>
+          
+      </div>
+      <!-- end row-->
+  </div>
+  <!-- end container -->
+{% endblock %}
